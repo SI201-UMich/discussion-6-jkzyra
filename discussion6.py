@@ -113,7 +113,7 @@ class HorseRaces:
             A dictionary of tuples of each horse, with their fastest race and time.
             EXAMPLE: {"Oguri Cap": ("Tenno Sho Fall", 16.6), "Mejiro McQueen": ("Tenno Sho Fall", 16.1)}
         '''
-        pass
+        
 
 ###############################################################################
 ##### TASK 4
@@ -127,7 +127,13 @@ class HorseRaces:
             A dictionary with each horse and their average time.
             EXAMPLE: {'Gold Ship': 16.5, 'Daiwa Scarlet': 17.2}
         '''
-        pass
+        result_dict = {}
+        
+        for horse_name, races in self.race_dict.items():
+            fastest_race = min(races.items(), key=lambda x: x[1])
+            result_dict[horse_name] = fastest_race
+        
+        return result_dict
 
 ###############################################################################
 ##### DO NOT MODIFY THE UNIT TESTS BELOW!
