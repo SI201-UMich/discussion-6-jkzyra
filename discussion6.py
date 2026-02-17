@@ -68,7 +68,7 @@ class HorseRaces:
             horse_dict = {}
             
             for i, race_time in enumerate(row[1:]):
-                if i < len(race_names):  # Ensure we don't go out of bounds
+                if i < len(race_names):
                     race_name = race_names[i]
                     horse_dict[race_name] = float(race_time)
             
@@ -92,7 +92,14 @@ class HorseRaces:
             tuple of fastest race name and the time
             EXAMPLE: ('Teio Sho', 14.8)
         '''
-        pass
+        if horse not in self.race_dict:
+            return (None, 999.9)
+        
+        horse_races = self.race_dict[horse]
+        
+        fastest_race = min(horse_races.items(), key=lambda x: x[1])
+        
+        return fastest_race
 
 ###############################################################################
 ##### TASK 3
